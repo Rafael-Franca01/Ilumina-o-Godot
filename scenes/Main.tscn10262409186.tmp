@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://ya62417owwog"]
+
+[ext_resource type="Material" uid="uid://cbws2t1uje87w" path="res://materials/pbr_base_material.tres" id="1_rvslj"]
+[ext_resource type="Script" uid="uid://blkk766r7wd7p" path="res://scripts/LitObject.gd" id="2_rarhs"]
+[ext_resource type="PackedScene" uid="uid://d2hnxmfqj10ek" path="res://scenes/CustomLight.tscn" id="3_vcsgt"]
+
+[sub_resource type="Environment" id="Environment_7mycd"]
+background_mode = 1
+background_color = Color(0.194349, 0.194349, 0.194349, 1)
+ambient_light_color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0bbpv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_0bbpv"]
+
+[node name="main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7mycd")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0282679, 1.43673, 4.57052)
+
+[node name="CustomLight" parent="." instance=ExtResource("3_vcsgt")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.58912, 0.257197)
+light_type = 2
+light_intensity = 30.0
+cast_shadows = true
+
+[node name="ShadowMapViewport" parent="CustomLight" index="0"]
+render_target_update_mode = 4
+
+[node name="ShadowCamera" parent="CustomLight/ShadowMapViewport" index="0"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 2.58912, 0.257197)
+fov = 45.0
+far = 10.1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 266.0
+offset_bottom = 266.0
+
+[node name="Piso" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = SubResource("PlaneMesh_0bbpv")
+skeleton = NodePath("../CustomLight")
+script = ExtResource("2_rarhs")
+material_albedo = Color(1, 0, 0, 1)
+main_pbr_material = ExtResource("1_rvslj")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("SphereMesh_0bbpv")
+skeleton = NodePath("../CustomLight")
+script = ExtResource("2_rarhs")
+material_albedo = Color(0, 0, 1, 1)
+main_pbr_material = ExtResource("1_rvslj")
+
+[editable path="CustomLight"]

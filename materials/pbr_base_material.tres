@@ -1,0 +1,29 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cbws2t1uje87w"]
+
+[ext_resource type="Shader" uid="uid://c0u0hgierbkbt" path="res://shaders/shader_pbr_principal.gdshader" id="1_0v518"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_0v518")
+shader_parameter/albedo_color_uniform = Color(1, 1, 1, 1)
+shader_parameter/ambient_shader_color_uniform = Color(0.1, 0.1, 0.1, 1)
+shader_parameter/material_roughness_uniform = 0.5
+shader_parameter/material_f0_scalar_uniform = 0.04
+shader_parameter/material_metallic_uniform = 0.0
+shader_parameter/material_emission_color_uniform = Color(0, 0, 0, 1)
+shader_parameter/light_positions = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/light_colors = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/light_intensities = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/light_ranges = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/light_types = PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/light_directions = PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/light_spot_cos_cutoffs = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/active_light_count = 0
+shader_parameter/use_shadow_map_global = false
+shader_parameter/shadow_light_V_matrix_global = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/shadow_light_P_matrix_global = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/shadow_casting_light_idx_global = 0
+shader_parameter/shadow_bias_global = 0.0
+shader_parameter/use_spot_cookie = false
+shader_parameter/spot_cookie_matrix = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/cookie_light_index = 0
