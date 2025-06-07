@@ -17,3 +17,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 LightManager="*res://scripts/LightManager.gd"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
